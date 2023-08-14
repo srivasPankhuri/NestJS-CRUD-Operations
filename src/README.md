@@ -38,11 +38,6 @@ User Service (user.service.ts):
 - Contains the business logic for interacting with the database and performing CRUD operations.
 - Utilizes the UserRepository to perform database operations.
 
-User Repository (user.repository.ts):
-
-- Provides a set of methods to perform database operations related to the User entity.
-- Extends the Repository class from TypeORM and is injected into the UserService.
-
 JWT Strategy (jwt.strategy.ts):
 
 - Implements a custom strategy for JWT-based authentication.

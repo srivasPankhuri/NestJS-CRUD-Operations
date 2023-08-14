@@ -10,32 +10,41 @@ import {
 import { UserService } from './user.service';
 import { User } from './user.entity';
 
+//Base Route for the controller
 @Controller('users')
 export class UserController {
+  //Injecting the user service
   constructor(private readonly userService: UserService) {}
 
+  //Decorator to define route handler for handling get requests to base route '/users'
   @Get()
   findAll(): Promise<User[]> {
-    return this.userService.findAll();
+    return this.userService.findAll(); // calling findAll method from UserService
   }
 
+  //Get all users with parameter ':id'
   @Get(':id')
-  findOne(@Param('id') id: string): Promise<User> {
-    return this.userService.findOne(+id);
+  findOne(@Param('id') id: number): Promise<User> {
+    return this.userService.findOne(id); // callinf findOne method from UserService
   }
 
+  //Defining route handler for post requests
   @Post()
   create(@Body() user: User): Promise<User> {
-    return this.userService.create(user);
+    return this.userService.create(user); //calling create method
   }
 
+  //defining route handler for put requests
   @Put(':id')
-  update(@Param('id') id: string, @Body() user: User): Promise<User> {
-    return this.userService.update(+id, user);
+  update(@Param('id') id: number, @Body() user: User): Promise<User> {
+    return this.userService.update(id, user); //calling update method
   }
 
+  //Defining route handlers for delete requests
   @Delete(':id')
-  remove(@Param('id') id: string): Promise<void> {
-    return this.userService.remove(+id);
+  remove(@Param('id') id: number): Promise<void> {
+    return this.userService.remove(id); //calling remove method
   }
 }
+
+// 'UserController' class responsible for handling HTTp requests

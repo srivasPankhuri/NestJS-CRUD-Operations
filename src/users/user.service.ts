@@ -58,4 +58,8 @@ export class UserService {
     // Deleting the user from the database
     await this.userRepository.remove(user);
   }
+
+  async findByUsername(username: string): Promise<User | undefined> {
+    return this.userRepository.findOne({ where: { username } });
+  }
 }
