@@ -30,8 +30,8 @@ export class UserController {
 
   //Defining route handler for post requests
   @Post()
-  create(@Body() user: User): Promise<User> {
-    return this.userService.create(user); //calling create method
+  register(@Body() user: User): Promise<User> {
+    return this.userService.register(user); //calling create method
   }
 
   //defining route handler for put requests
@@ -45,6 +45,12 @@ export class UserController {
   remove(@Param('id') id: number): Promise<void> {
     return this.userService.remove(id); //calling remove method
   }
+
+  // Defining route handler for user registration
+  // @Post('register')
+  // async register(@Body() user: User): Promise<User> {
+  //   return this.userService.create(user);
+  // }
 }
 
 // 'UserController' class responsible for handling HTTp requests

@@ -38,7 +38,7 @@ export class UserService {
   }
 
   // Creating a new user
-  async create(user: User): Promise<User> {
+  async register(user: User): Promise<User> {
     // Saving the new user to the database using userRepository
     return this.userRepository.save(user);
   }

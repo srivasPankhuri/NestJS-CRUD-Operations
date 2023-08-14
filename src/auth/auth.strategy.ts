@@ -3,13 +3,16 @@ import { PassportStrategy } from '@nestjs/passport';
 import { Strategy, ExtractJwt } from 'passport-jwt';
 import { AuthService } from './auth.service';
 import { JwtPayload } from '../interfaces/jwt-payload.interface';
+import * as dotenv from 'dotenv';
+
+// console.log('JWT_SECRET_KEY:', process.env.JWT_SECRET_KEY);
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
   constructor(private readonly authService: AuthService) {
     super({
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(), //Extracting JWTTokem from authorization header
-      secretOrKey: process.env.JWT_SECRET_KEY, // providing secret key to verify
+      secretOrKey: 'secret-key', // providing secret key to verify
     });
   }
 
