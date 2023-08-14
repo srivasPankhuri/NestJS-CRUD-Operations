@@ -38,7 +38,7 @@ User Service (user.service.ts):
 - Contains the business logic for interacting with the database and performing CRUD operations.
 - Utilizes the UserRepository to perform database operations.
 
-JWT Strategy (jwt.strategy.ts):
+Auth Strategy (auth.strategy.ts):
 
 - Implements a custom strategy for JWT-based authentication.
 - Validates and extracts user information from the JWT payload.
