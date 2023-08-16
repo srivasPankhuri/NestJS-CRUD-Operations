@@ -1,9 +1,13 @@
 import { Test, TestingModule } from '@nestjs/testing';
+import { AuthController } from '../../src/auth/auth.controller';
+import { AuthService } from '../../src/auth/auth.service';
+import { AuthModule } from '../../src/auth/auth.module';
 import { UserController } from '../../src/users/user.controller';
 import { UserService } from '../../src/users/user.service';
 import { UserModule } from '../../src/users/user.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from '../../src/users/user.entity';
+import { RootTestModule } from '../../root-test.module';
 
 describe('UserController', () => {
   let userController: UserController;
@@ -18,6 +22,7 @@ describe('UserController', () => {
           entities: [User],
           synchronize: true,
         }),
+        RootTestModule,
       ],
       controllers: [UserController],
       providers: [UserService],

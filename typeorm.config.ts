@@ -1,5 +1,6 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 import { join } from 'path';
+import { User } from './src/users/user.entity';
 
 export const connection: TypeOrmModuleOptions = {
   type: 'postgres', // Database type
